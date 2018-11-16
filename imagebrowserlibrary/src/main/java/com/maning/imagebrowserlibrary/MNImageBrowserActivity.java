@@ -2,43 +2,25 @@ package com.maning.imagebrowserlibrary;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
+import android.view.*;
+import android.widget.*;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.maning.imagebrowserlibrary.listeners.OnClickListener;
 import com.maning.imagebrowserlibrary.listeners.OnLongClickListener;
 import com.maning.imagebrowserlibrary.listeners.OnPageChangeListener;
 import com.maning.imagebrowserlibrary.model.ImageBrowserConfig;
-import com.maning.imagebrowserlibrary.transforms.DefaultTransformer;
-import com.maning.imagebrowserlibrary.transforms.DepthPageTransformer;
-import com.maning.imagebrowserlibrary.transforms.RotateDownTransformer;
-import com.maning.imagebrowserlibrary.transforms.RotateUpTransformer;
-import com.maning.imagebrowserlibrary.transforms.ZoomInTransformer;
-import com.maning.imagebrowserlibrary.transforms.ZoomOutSlideTransformer;
-import com.maning.imagebrowserlibrary.transforms.ZoomOutTransformer;
+import com.maning.imagebrowserlibrary.transforms.*;
 import com.maning.imagebrowserlibrary.utils.StatusBarUtil;
 import com.maning.imagebrowserlibrary.view.CircleIndicator;
 import com.maning.imagebrowserlibrary.view.MNGestureView;
 import com.maning.imagebrowserlibrary.view.MNViewPager;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -52,7 +34,8 @@ public class MNImageBrowserActivity extends AppCompatActivity {
 
     private static final String TAG = MNImageBrowserActivity.class.getSimpleName();
     private Context context;
-
+	
+	//手势，处理按下滑动关闭图片
     private MNGestureView mnGestureView;
     private MNViewPager viewPagerBrowser;
     private RelativeLayout rl_black_bg;
@@ -86,6 +69,7 @@ public class MNImageBrowserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //设置当前状态
         setWindowFullScreen();
         setContentView(R.layout.activity_mnimage_browser);
         sActivityRef = new WeakReference<>(this);
@@ -187,6 +171,7 @@ public class MNImageBrowserActivity extends AppCompatActivity {
         imageBrowserAdapter = new MyAdapter();
         viewPagerBrowser.setAdapter(imageBrowserAdapter);
         viewPagerBrowser.setCurrentItem(currentPosition);
+        //设置viepager滑动的动画
         setViewPagerTransforms();
         circleIndicator.setViewPager(viewPagerBrowser);
         viewPagerBrowser.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -210,6 +195,7 @@ public class MNImageBrowserActivity extends AppCompatActivity {
             }
         });
 
+        //手势
         mnGestureView.setOnGestureListener(new MNGestureView.OnCanSwipeListener() {
             @Override
             public boolean canSwipe() {
@@ -221,7 +207,8 @@ public class MNImageBrowserActivity extends AppCompatActivity {
                 return true;
             }
         });
-
+	
+	    //手势的处理
         mnGestureView.setOnSwipeListener(new MNGestureView.OnSwipeListener() {
             @Override
             public void downSwipe() {
