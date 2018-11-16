@@ -164,13 +164,13 @@ public class MainActivity extends AppCompatActivity
 					});
 					tv_number_indicator.setText((position+1)+"/"+sourceImageList.size());
 					MNImageBrowser.with(context)
-							//页面切换效果
+							//页面切换效果(必须)
 							.setTransformType(transformType)
-							//指示器效果
+							//指示器效果(必须)
 							.setIndicatorType(indicatorType)
-							//设置隐藏指示器
+							//设置隐藏指示器(必须)
 							.setIndicatorHide(false)
-							//设置自定义遮盖层，定制自己想要的效果，当设置遮盖层后，原本的指示器会被隐藏
+							//设置自定义遮盖层，定制自己想要的效果，当设置遮盖层后，原本的指示器会被隐藏(必须)
 							.setCustomShadeView(showCustomShadeView? customView: null)
 							//自定义ProgressView，不设置默认默认没有
 							.setCustomProgressViewLayoutID(
