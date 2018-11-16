@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://D:\as_github\MNImageBrowser-master\MNImageBrowser-master\MNImageBrowser.iml" filepath="D:\as_github\MNImageBrowser-master\MNImageBrowser-master\MNImageBrowser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MNImageBrowser-master.iml" filepath="$PROJECT_DIR$/MNImageBrowser-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\as_github\MNImageBrowser-master\MNImageBrowser-master\app\app.iml" filepath="D:\as_github\MNImageBrowser-master\MNImageBrowser-master\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imagebrowserlibrary/imagebrowserlibrary.iml" filepath="$PROJECT_DIR$/imagebrowserlibrary/imagebrowserlibrary.iml" />
+      <module fileurl="file://D:\as_github\MNImageBrowser-master\MNImageBrowser-master\imagebrowserlibrary\imagebrowserlibrary.iml" filepath="D:\as_github\MNImageBrowser-master\MNImageBrowser-master\imagebrowserlibrary\imagebrowserlibrary.iml" />
+    </modules>
+  </component>
+</project>
